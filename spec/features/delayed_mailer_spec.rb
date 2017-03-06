@@ -13,9 +13,9 @@ describe 'Submission deadline reminder email' do
 
     # puts DateTime.now.in_time_zone
     # puts due_at
-    due_at1 = Time.parse(due_at.to_s(:db))
+    due_at1 = Time.zone.parse(due_at.to_s(:db))
     curr_time = DateTime.now.in_time_zone.to_s(:db)
-    curr_time = Time.parse(curr_time)
+    curr_time = Time.zone.parse(curr_time)
     time_in_min = ((due_at1 - curr_time).to_i / 60) * 60
     Delayed::Job.delete_all
     expect(Delayed::Job.count).to eq(0)
@@ -34,9 +34,9 @@ describe 'Review deadline reminder email' do
     @name = "user"
     due_at = DateTime.now.in_time_zone + 2.minutes
 
-    due_at1 = Time.parse(due_at.to_s(:db))
+    due_at1 = Time.zone.parse(due_at.to_s(:db))
     curr_time = DateTime.now.in_time_zone.to_s(:db)
-    curr_time = Time.parse(curr_time)
+    curr_time = Time.zone.parse(curr_time)
     time_in_min = ((due_at1 - curr_time).to_i / 60) * 60
     Delayed::Job.delete_all
     expect(Delayed::Job.count).to eq(0)
@@ -54,9 +54,9 @@ describe 'Metareview deadline reminder email' do
     @name = "user"
     due_at = DateTime.now.in_time_zone + 2.minutes
 
-    due_at1 = Time.parse(due_at.to_s(:db))
+    due_at1 = Time.zone.parse(due_at.to_s(:db))
     curr_time = DateTime.now.in_time_zone.to_s(:db)
-    curr_time = Time.parse(curr_time)
+    curr_time = Time.zone.parse(curr_time)
     time_in_min = ((due_at1 - curr_time).to_i / 60) * 60
     Delayed::Job.delete_all
     expect(Delayed::Job.count).to eq(0)
@@ -74,9 +74,9 @@ describe 'Drop Topic deadline reminder email' do
     @name = "user"
     due_at = DateTime.now.in_time_zone + 2.minutes
 
-    due_at1 = Time.parse(due_at.to_s(:db))
+    due_at1 = Time.zone.parse(due_at.to_s(:db))
     curr_time = DateTime.now.in_time_zone.to_s(:db)
-    curr_time = Time.parse(curr_time)
+    curr_time = Time.zone.parse(curr_time)
     time_in_min = ((due_at1 - curr_time).to_i / 60) * 60
     Delayed::Job.delete_all
     expect(Delayed::Job.count).to eq(0)
@@ -94,9 +94,9 @@ describe 'Signup deadline reminder email' do
     @name = "user"
     due_at = DateTime.now.in_time_zone + 2.minutes
 
-    due_at1 = Time.parse(due_at.to_s(:db))
+    due_at1 = Time.zone.parse(due_at.to_s(:db))
     curr_time = DateTime.now.in_time_zone.to_s(:db)
-    curr_time = Time.parse(curr_time)
+    curr_time = Time.zone.parse(curr_time)
     time_in_min = ((due_at1 - curr_time).to_i / 60) * 60
     Delayed::Job.delete_all
     expect(Delayed::Job.count).to eq(0)
@@ -114,9 +114,9 @@ describe 'Team formation deadline reminder email' do
     @name = "user"
     due_at = DateTime.now.in_time_zone + 2.minutes
 
-    due_at1 = Time.parse(due_at.to_s(:db))
+    due_at1 = Time.zone.parse(due_at.to_s(:db))
     curr_time = DateTime.now.in_time_zone.to_s(:db)
-    curr_time = Time.parse(curr_time)
+    curr_time = Time.zone.parse(curr_time)
     time_in_min = ((due_at1 - curr_time).to_i / 60) * 60
     Delayed::Job.delete_all
     expect(Delayed::Job.count).to eq(0)
